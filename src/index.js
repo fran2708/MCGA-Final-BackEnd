@@ -1,10 +1,15 @@
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
+const productRoutes = require('./routes/product')
 
 const app = express()
 const PORT = process.env.PORT || 4000
 
+app.use(express.json())
+app.use('/api', productRoutes)
+
+// ROUTES
 app.get('/', (req, res) => {
     res.send('test')
 })
