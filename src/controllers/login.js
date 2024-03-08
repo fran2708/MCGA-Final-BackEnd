@@ -26,16 +26,7 @@ const login = async (req, res) => {
             })
         }
 
-        const token = jwt.sign(
-            {
-                email,
-                userId: user._id
-            },
-            process.env.JWT_KEY,
-            {
-                expiresIn: '1d'
-            }
-        )
+        const token = jwt.sign({ email, userId: user._id }, process.env.JWT_KEY, { expiresIn: '1d' })
 
         user.token = token
         await user.save()
