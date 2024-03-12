@@ -1,7 +1,7 @@
 const productSchema = require('../models/Product')
 
 // GET PRODUCTS
-const getProducts = async (req,res) => {
+const getProducts = async (req, res) => {
     try{
         const response = await productSchema.find()
         return res.status(200).json({
@@ -9,10 +9,10 @@ const getProducts = async (req,res) => {
             error: false,
             msg: 'List of products'
         })
-    }catch(err){
+    }catch(error){
         return res.status(400).json({
             error: true,
-            msg: err
+            msg: error
         })
     }
 }
@@ -97,10 +97,11 @@ const deleteProduct = async (req,res) => {
             })
         }
 
-        return res.status(204).json({
+        return res.status(200).json({
             data: response,
             error: false,
-            msg: 'Product deleted'
+            msg: 'Product deleted',
+            id: req.params.id
         })
     }catch(err){
         return res.status(400).json({
