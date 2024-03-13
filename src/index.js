@@ -29,3 +29,5 @@ mongoose
     .catch((error) => console.error('🔴 MongoDB connection failed: ' + error + ' 🔴'))
 
 app.listen(PORT, () => console.log('server listening on port', PORT))
+
+module.exports = app
