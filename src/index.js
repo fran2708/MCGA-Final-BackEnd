@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const productRoutes = require('./routes/product')
+const authRoutes = require('./routes/auth')
 const cors = require('cors')
 
 const app = express()
@@ -9,16 +10,17 @@ const PORT = process.env.PORT || 4000
 
 app.use(
     cors({
-        origin: '*'
+        origin: '*',
+        credentials: true
     })
 )
 
 app.use(express.json())
-app.use('/api', productRoutes)
+app.use('/api', productRoutes, authRoutes)
 
 // ROUTES
 app.get('/', (req, res) => {
-    res.send('test')
+    res.send('Welcome to my API for MCGA')
 })
 
 mongoose
