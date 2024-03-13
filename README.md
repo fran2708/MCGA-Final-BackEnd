@@ -14,13 +14,17 @@ Open a terminal on the project root and run
 
 Create a .env file, like the one provided as example
 
-> MONGODB_URL = mongodb+srv://<username>:<password>@mcga-final.0uikbae.mongodb.net/?retryWrites=true&w=majority&appName=MCGA-Final
+> `MONGODB_URL = mongodb+srv://<username>:<password>@mcga-final.0uikbae.mongodb.net/?retryWrites=true&w=majority&appName=MCGA-Final`
 
 Enter your credentials replacing <username> and <password>
 
 Specify the name of your database before the '?'
 
 [More info on MongoDB's connection format](https://www.mongodb.com/docs/manual/reference/connection-string/)
+
+Also, set your token on JWT_KEY
+
+[More info about JWT](https://jwt.io/)
 
 ## Run the application
 
